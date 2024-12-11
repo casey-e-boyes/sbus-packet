@@ -9,6 +9,7 @@
 #define __SBUS_PACKET_HPP__
 
 #include <cstdint>
+#include <cstddef>
 #include <variant>
 #include <type_traits>
 
