@@ -31,7 +31,12 @@ namespace SBUS {
 
             [[nodiscard]] ErrorStatus encode() noexcept;
             [[nodiscard]] ErrorStatus decode() noexcept;
-        private:
+
+            Port(const uint16_t channel_min, const uint16_t channel_max) :
+                channel_min(channel_min),
+                channel_max(channel_max) 
+            {}
+        // private:
             volatile uint8_t buffer[25];
             const uint16_t channel_min;
             const uint16_t channel_max;
@@ -39,12 +44,6 @@ namespace SBUS {
             inline ErrorStatus check_packet_framing();
             inline ErrorStatus check_channel_limits(const uint16_t channel);
             ErrorStatus check_packet();
-
-            Port(const uint16_t channel_min, const uint16_t channel_max) :
-                channel_min(channel_min),
-                channel_max(channel_max) {
-
-            }
     };
 }
 
